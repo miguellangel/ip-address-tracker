@@ -1,0 +1,11 @@
+<svg version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+	<g stroke-linecap="round" stroke-linejoin="round">
+		<circle cx="24" cy="24" r="20.6" fill="#e28525" fill-rule="evenodd" stroke-dashoffset=".696" stroke-width="11.55" style="paint-order:markers fill stroke"/>
+		<path d="m15.93 9.563c-1.987 0-3.588 1.599-3.588 3.587v21.7c0 1.987 1.601 3.588 3.588 3.588h16.14c1.987 0 3.587-1.601 3.587-3.588v-21.7c0-1.987-1.599-3.587-3.587-3.587zm1.14 2.039h13.86c1.707 0 3.081 1.373 3.081 3.079v18.63c0 1.707-1.374 3.081-3.081 3.081h-13.86c-1.707 0-3.081-1.374-3.081-3.081v-18.63c0-1.707 1.374-3.079 3.081-3.079z" fill="#ffffff" fill-rule="evenodd" stroke-dashoffset=".696" stroke-width="8.658" style="paint-order:markers fill stroke"/>
+		<path d="m10.27 15.97h5.511" fill="#ffffff" stroke="#ffffff" stroke-width="2.31"/>
+		<path d="m10.27 23.82h5.511" fill="#ffffff" stroke="#ffffff" stroke-width="2.31"/>
+		<path d="m10.27 31.68h5.511" fill="#ffffff" stroke="#ffffff" stroke-width="2.31"/>
+		<ellipse transform="matrix(.866 .5 -.9659 .2588 0 0)" cx="47.76" cy="17.97" rx="2.975" ry="4.208" fill="none" stroke="#ffffff" stroke-dashoffset=".696" stroke-width=".799" style="paint-order:markers fill stroke"/>
+		<path d="m27.97 21.91c0 2.192-1.777 7.029-3.969 7.029-2.192 0-3.969-4.837-3.969-7.029 0-2.192 1.777-3.969 3.969-3.969 2.192 0 3.969 1.777 3.969 3.969z" fill="#ffb380" fill-rule="evenodd" stroke="#ffffff" stroke-dashoffset=".696" stroke-width="1.084" style="paint-order:markers fill stroke"/>
+	</g>
+</svg>
