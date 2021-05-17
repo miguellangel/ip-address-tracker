@@ -153,7 +153,7 @@ const App = () => {
 			this fixes the keyboard glitch on mobile*/
 		window.onorientationchange = () => PreserveViewport.updateNativeViewport() /* bool is irrelevant ;; just keep changing so that page re-renders*/
 		/*PreserveViewport.updateNativeViewport()*/
-		FetchData('ipAddress', '8.8.8.8') /* default show google's ip on load */
+		FetchData('ipAddress', '') /* default show google's ip on load */
 
 	// eslint-disable-next-line
 	}, [])
