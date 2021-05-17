@@ -57,8 +57,8 @@ $xlarge: 1440px;
 	grid-template-rows: 40%;
 	font-family: 'Rubik', sans-serif;
 
-	$lightgrey: hsl(0%,0%,59%);
-	$darkgrey: hsl(0%,0%,17%);
+	$lightgrey: hsl(0deg,0%,59%);
+	$darkgrey: hsl(0deg,0%,17%);
 
 	 * {place-self: center;}
 
@@ -73,6 +73,7 @@ $xlarge: 1440px;
 	 	background-image: url("./media/pattern-bg.png");
 
 	 	header {
+	 		@media (max-height: 768px) {font-size: 3vmax}
 	 		@include media($medium) {
 	 			font-size: 3vmax;
 	 		}
@@ -81,6 +82,7 @@ $xlarge: 1440px;
 	 		font-weight: 700;
 	 		color: white;
 	 	}
+
 	 	form {
 	 		@include media($medium) {
 	 			grid-template-columns: auto 8vh;
@@ -89,6 +91,21 @@ $xlarge: 1440px;
 	 		place-self: start center;
 	 		display: grid;
 	 		grid-template-columns: auto auto;
+
+	 		&.error {
+	 			@keyframes error {
+	 				0% {transform: translate(-5%)}
+	 				25% {transform: translate(5%)}
+	 				50% {transform: translate(-5%)}
+	 				75% {transform: translate(5%)}
+	 				100% {transform: translate(0%)}
+	 			}
+
+	 			animation: error 0.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) 0s 1 alternate;
+
+	 			& > input:first-of-type {background: hsl(0, 100%, 70%); transition: background 0.5s;}
+	 		}
+
 
 	 		input {
 	 			place-self: center;
@@ -105,32 +122,35 @@ $xlarge: 1440px;
 	 			&:focus {
 	 				outline: none;
 	 			}
-	 		}
-	 		input[type="text"] {
 
-	 			@include media($medium) {
-	 				width: calc(100% - 6vmin);
+	 			&[type="text"] {
+		 			@include media($medium) {
+		 				width: calc(100% - 6vmin);
+		 			}
+
+		 			--: 1em 0 0 1em;
+		 			height: calc(8vh);
+		 			width: calc(35vw - 8vh);
+		 			border: none;
+		 			padding: 0 3vmin;
+		 			font-size: 1em;
+		 			font-family: 'Rubik';
+
+	 				&::placeholder {color: rgba(0,0,0,0.5)}
+
 	 			}
+	 			&[type="submit"] {
+		 			color: transparent;
+		 			height: 8vh;
+		 			width: 8vh;
+		 			border: none;
+		 			background: $darkgrey;
+		 			background-image: url("./media/icon-arrow.svg");
+		 			background-position: 50%;
+		 			background-size: 25%;
+		 			background-repeat: no-repeat;
 
-	 			--: 1em 0 0 1em;
-	 			height: calc(8vh);
-	 			width: calc(35vw - 8vh);
-	 			border: none;
-	 			padding: 0 3vmin;
-	 			font-size: 1em;
-	 			font-family: 'Rubik';
-
-	 		}
-	 		input[type="submit"] {
-	 			color: transparent;
-	 			height: 8vh;
-	 			width: 8vh;
-	 			border: none;
-	 			background: $darkgrey;
-	 			background-image: url("./media/icon-arrow.svg");
-	 			background-position: 50%;
-	 			background-size: 25%;
-	 			background-repeat: no-repeat;
+	 			}
 	 		}
 	 	}
 	 }
@@ -148,10 +168,15 @@ $xlarge: 1440px;
 				height: 35vmax;
 				width: 85%;
 				transform: translate(0, -18vmax);
+				flex-direction: column;
 			}
 		    position: sticky;
 		    z-index: 500;
-		    display: grid;
+		    display: flex;
+		    flex-direction: row;
+		    align-content: flex-start;
+		    align-items: center;
+		    flex-wrap: nowrap;
 		    grid-template-columns: repeat(4, 25%);
 		    place-self: start center;
 		    height: 22vh;
@@ -164,11 +189,10 @@ $xlarge: 1440px;
 		    div {
 		    	@include media($medium) {
 		    		border-left: 0;
-		    		grid-gap: 10px;
-
+		    		grid-gap: 8px;
 		    	}
 		    	display: grid;
-		    	grid-template-rows: 40% 40%;
+		    	grid-template-rows: 40% 60%;
 		    	width: 100%;
 		    	height: 50%;
 
@@ -180,12 +204,16 @@ $xlarge: 1440px;
 		    	}
 
 		    	h4, h6 {
+
 		    		@include media($medium) {
-		    			place-self: center !important;
+		    			justify-content: center !important;
 		    			transform: none !important;
-		    			padding-left: 0 !important;
+		    			padding: 0 !important;
+	    				text-align: center;
+	    				width: 100%;
 		    		}
-		    		padding-left: 32px;
+		    		width: calc(100% - 64px);
+		    		padding: 0 32px;
 		    		margin: 0;
 		    		place-self: center;
 		    		color: $darkgrey;
@@ -195,10 +223,46 @@ $xlarge: 1440px;
 		    		@media (max-height: 768px) {
 		    			font-size: 3.5vmin;
 		    		}
-		    		place-self: start;
+		    		height: 120%;
+		    		display: flex;
+		    		justify-content: flex-start;
 		    		font-size: 1.78em;
 		    		font-weight: 500;
 		    		transform: translate(0,-2vh);
+
+		    		span.loading {
+		    			@include media($medium) {
+		    				place-self: center;
+		    			}
+		    			width: 70%;
+		    			height: 100%;
+		    			place-self: start;
+		    			background: rgba(0,0,0, 0.1);
+		    			display: block;
+		    			position: relative;
+		    			border-radius: 0.2em;
+		    			--: 10%;
+
+		    			&::before, &::after {
+
+		    				@keyframes loading {
+								from {}
+								to {transform: scaleX(1.5)translate(30%)}
+		    				}
+
+		    				position: absolute;
+		    				content: '';
+		    				height: 5px;
+		    				background: rgba(0,0,0,0.1);
+		    				left: 8px;
+		    				border-radius: 3em;
+		    				animation: loading 1.25s ease infinite alternate;
+		    			}
+
+		    			&::before {width: 25%; top: calc(24%)}
+		    			&::after {width: 50%; top: calc(59%)}
+
+		    		}
 
 		    	}
 		    	h6 {
